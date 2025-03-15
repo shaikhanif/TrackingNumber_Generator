@@ -3,10 +3,10 @@ package com.shaik.TrackingNumber_Generator.model;
 public class TrackingNumberResponse {
 
 	private String tracking_number;
-    private long created_at;
+    private String created_at;
    
 
-    public TrackingNumberResponse(String tracking_number, long created_at) {
+    public TrackingNumberResponse(String tracking_number, String created_at) {
         this.tracking_number = tracking_number;
         this.created_at = created_at;
     }
@@ -20,7 +20,7 @@ public class TrackingNumberResponse {
         this.tracking_number = tracking_number;
     }
 
-    public long getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 

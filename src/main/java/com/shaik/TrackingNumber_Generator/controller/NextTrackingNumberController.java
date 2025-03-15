@@ -1,5 +1,8 @@
 package com.shaik.TrackingNumber_Generator.controller;
 
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+
 import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,8 +41,9 @@ public class NextTrackingNumberController {
 	        String trackingNumber = trackingService.generateTrackingNumber(
 	                origin_country_id, destination_country_id, weight, created_at,
 	                customer_id, customer_name, customer_slug);
+	        String rfc3339Timestamp = DateTimeFormatter.ISO_INSTANT.format(Instant.now());
 
-	        TrackingNumberResponse response = new TrackingNumberResponse(trackingNumber, System.currentTimeMillis());
+	        TrackingNumberResponse response = new TrackingNumberResponse(trackingNumber, rfc3339Timestamp);
 	        return ResponseEntity.ok(response);
 	   
 }
